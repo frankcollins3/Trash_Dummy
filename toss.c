@@ -43,7 +43,8 @@ if (home_dir == NULL) {
         printf("<3 TRASH!!!! <3");
     }
 }
-
+    // cmnd shift . -------> command shift period into the terminal to show the hidden files.
+    
     // digtrash = fopen("~./Trash", "r");
     // digtrash = fopen("~./Trash", "r");
     // digtrash = fopen("/Users/medium/Desktop/testtrash2.txt", "w");
