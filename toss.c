@@ -60,22 +60,16 @@ if (home_dir == NULL) {
     if (dir == NULL) { 
         printf("-____- garbage -____-\n");
     } else {
-        printf("<3 TRASH! <3");
+        printf("<3 TRASH!!!! <3\n");
+        struct dirent *entry;
+        while ((entry = readdir(dir)) != NULL) {
+            if (entry->d_name[0] != '.') {  // skip hidden files
+                printf("my files:\t %s\n", entry->d_name);
+            }
+        }
+        closedir(dir);
     }
 }
-
-
-
-    // cmnd shift . -------> command shift period into the terminal to show the hidden files.
-
-    // digtrash = fopen("~./Trash", "r");
-    // digtrash = fopen("~./Trash", "r");
-    // digtrash = fopen("/Users/medium/Desktop/testtrash2.txt", "w");
-    // if (digtrash == NULL) {
-    //     printf("wow what garbage");
-    // } else {
-    //     printf("theres some stuff id like you to look at");
-    // }
 
     return 0;
 }
