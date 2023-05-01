@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <dirent.h>
 
 int main() {
     FILE *trash, *newfile, *digtrash;
@@ -29,22 +30,44 @@ int main() {
     // } 
 
     // mv  ~/.Trash alias ----> desktop
-    char *home_dir = (char *) getenv("HOME");
+//     char *home_dir = (char *) getenv("HOME");
+// if (home_dir == NULL) {
+//     printf("we're homeless guys\n");
+// } else {
+//     printf("home sweet home: %s\n", home_dir);
+//     strcat(home_dir, "/Trash");
+//     printf("updated directory:\t %s", home_dir);
+//     digtrash = fopen("/Users/medium/.Trash", "r");
+//     if (digtrash == NULL) { 
+//         printf("-____- garbage -____-");
+//     } else {
+//         printf("<3 TRASH!!!! <3");
+//         for (int i = 0; i < sizeof(digtrash); i++) {
+//             printf("my files:\t %s \n", digtrash[i]);
+//         }
+//     }
+// }
+
+char *home_dir = getenv("HOME");
 if (home_dir == NULL) {
     printf("we're homeless guys\n");
 } else {
     printf("home sweet home: %s\n", home_dir);
-    strcat(home_dir, "/Trash");
-    printf("updated directory:\t %s", home_dir);
-    digtrash = fopen("/Users/medium/trash", "r");
-    if (digtrash == NULL) { 
-        printf("-____- garbage -____-");
+    char trash_dir[100];
+    sprintf(trash_dir, "%s/.Trash", home_dir);
+    printf("updated directory:\t %s\n", trash_dir);
+    DIR *dir = opendir(trash_dir);
+    if (dir == NULL) { 
+        printf("-____- garbage -____-\n");
     } else {
-        printf("<3 TRASH!!!! <3");
+        printf("<3 TRASH! <3");
     }
 }
+
+
+
     // cmnd shift . -------> command shift period into the terminal to show the hidden files.
-    
+
     // digtrash = fopen("~./Trash", "r");
     // digtrash = fopen("~./Trash", "r");
     // digtrash = fopen("/Users/medium/Desktop/testtrash2.txt", "w");
