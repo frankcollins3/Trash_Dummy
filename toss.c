@@ -3,11 +3,14 @@
 #include <string.h>
 #include <dirent.h>
 
+    #define MAX_FILE_CHAR 256
+
 int main() {
     FILE *trash, *newfile, *digtrash;
     char ch;
 
     printf("test print:\t  found some pie. \n");
+
 
     trash = fopen("./test.txt", "r");
     if (trash == NULL) {
@@ -63,7 +66,10 @@ if (home_dir == NULL) {
         printf("<3 TRASH!!!! <3\n");
         struct dirent *entry;
         while ((entry = readdir(dir)) != NULL) {
-            if (entry->d_name[0] != '.') {  // skip hidden files
+            // char my_file[MAX_FILE_CHAR] = entry->d_name; 
+            char first_char = entry->d_name[0]; 
+            if (first_char != '.') {  // skip hidden files
+            // if (entry->d_name[0] != '.') {  // skip hidden files
                 printf("my files:\t %s\n", entry->d_name);
             }
         }
@@ -73,3 +79,4 @@ if (home_dir == NULL) {
 
     return 0;
 }
+
