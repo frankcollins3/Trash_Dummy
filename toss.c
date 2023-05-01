@@ -26,13 +26,14 @@ int main() {
     //     return 1;
     // } 
 
-    digtrash = fopen("/Users/medium/Desktop/testtrash.txt", "r");
+    digtrash = fopen("/Users/medium/Desktop/testtrash2.txt", "w");
     if (digtrash == NULL) {
         printf("wow what garbage");
     } else {
-        while ((ch = fgetc(digtrash)) != EOF) {
-            printf("%c", ch);
-        }
+        fprintf(digtrash, "look what we have here");
+        // while ((ch = fgetc(digtrash)) != EOF) {
+        //     printf("%c", ch);
+        // }
     }
 
     return 0;
