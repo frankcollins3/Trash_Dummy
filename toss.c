@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main() {
     FILE *trash, *newfile, *digtrash;
@@ -32,6 +33,8 @@ if (home_dir == NULL) {
     printf("we're homeless guys\n");
 } else {
     printf("home sweet home: %s\n", home_dir);
+    strcat(home_dir, "/Trash");
+    printf("updated directory:\t %s", home_dir);
 }
 
     // digtrash = fopen("~./Trash", "r");
