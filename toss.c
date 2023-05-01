@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     FILE *trash, *newfile, *digtrash;
@@ -26,15 +27,22 @@ int main() {
     //     return 1;
     // } 
 
-    digtrash = fopen("/Users/medium/Desktop/testtrash2.txt", "w");
-    if (digtrash == NULL) {
-        printf("wow what garbage");
-    } else {
-        fprintf(digtrash, "look what we have here");
-        // while ((ch = fgetc(digtrash)) != EOF) {
-        //     printf("%c", ch);
-        // }
-    }
+    char *home_dir = (char *) getenv("HOME");
+if (home_dir == NULL) {
+    printf("we're homeless guys\n");
+} else {
+    printf("home sweet home: %s\n", home_dir);
+}
+
+    // digtrash = fopen("~./Trash", "r");
+    // digtrash = fopen("~./Trash", "r");
+    // digtrash = fopen("/Users/medium/trash", "r");
+    // digtrash = fopen("/Users/medium/Desktop/testtrash2.txt", "w");
+    // if (digtrash == NULL) {
+    //     printf("wow what garbage");
+    // } else {
+    //     printf("theres some stuff id like you to look at");
+    // }
 
     return 0;
 }
