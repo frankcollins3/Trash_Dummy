@@ -1,4 +1,22 @@
- Preliminary input that allows a user to look into the trash for anything they might want before removing The items.
+int digintrash() {
+ 
+}
+
+
+int main () {
+   digintrash();  
+ 
+   return 333;
+}
+
+
+
+
+
+
+
+
+Preliminary input that allows a user to look into the trash for anything they might want before removing The items.
  As I type this it woudl be interesting to tag files. Possibly with (i.e.)
  mynotes.txt
  
