@@ -28,6 +28,7 @@ int main() {
     //     return 1;
     // } 
 
+    // mv  ~/.Trash alias ----> desktop
     char *home_dir = (char *) getenv("HOME");
 if (home_dir == NULL) {
     printf("we're homeless guys\n");
@@ -35,11 +36,16 @@ if (home_dir == NULL) {
     printf("home sweet home: %s\n", home_dir);
     strcat(home_dir, "/Trash");
     printf("updated directory:\t %s", home_dir);
+    digtrash = fopen("/Users/medium/trash", "r");
+    if (digtrash == NULL) { 
+        printf("-____- garbage -____-");
+    } else {
+        printf("<3 TRASH!!!! <3");
+    }
 }
 
     // digtrash = fopen("~./Trash", "r");
     // digtrash = fopen("~./Trash", "r");
-    // digtrash = fopen("/Users/medium/trash", "r");
     // digtrash = fopen("/Users/medium/Desktop/testtrash2.txt", "w");
     // if (digtrash == NULL) {
     //     printf("wow what garbage");
