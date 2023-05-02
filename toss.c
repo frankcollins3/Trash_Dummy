@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <dirent.h>
+#include <unistd.h>
 
     #define MAX_FILE_CHAR 256
 
@@ -17,13 +18,7 @@ int main() {
         printf("Failed to open file\n");
         return 1;
     } else {
-        // printf("trash is not equal to null. pretty cool\n");
-
-        // while ((ch = fgetc(trash)) != EOF) {
-        //     printf("%c", ch);
-        // }
-
-        // fclose(trash);
+        printf("nothing");
     }
 
     // newfile = fopen("test2.txt", "w");
@@ -69,8 +64,25 @@ if (home_dir == NULL) {
             // char my_file[MAX_FILE_CHAR] = entry->d_name; 
             char first_char = entry->d_name[0]; 
             if (first_char != '.') {  // skip hidden files
-            // if (entry->d_name[0] != '.') {  // skip hidden files
-                printf("my files:\t %s\n", entry->d_name);
+            
+                // if (strcmp(entry->d_name, "sure.txt")) {
+                //     printf("%s \n", entry->d_name);
+                //     // printf("lets see \n");
+                //     remove(entry->d_name);
+                // }
+
+                char trash_dir[100];
+                sprintf(trash_dir, "%s/.Trash", home_dir);
+                char file_path[256];
+                sprintf(file_path, "%s/%s", trash_dir, "you.txt");
+                if (unlink(file_path) == 0) {
+                    printf("file deleted:\t %s \n", file_path);  
+                    break;          
+                } else {
+
+                    printf("nada: %s \n", file_path);
+                }
+
             }
         }
         closedir(dir);
